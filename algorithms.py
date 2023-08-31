@@ -36,4 +36,15 @@ print('\n\nCalculating prime numbers using Sieve of Erastotenes')
 for i in range(2, 100):
     if res[i]:
         print(i, end=', ')
-        
+
+
+def showbits(s):
+    print(f'{s:3}=', end='')
+    weighs = [1, 2, 4, 8, 16, 32, 64, 128]
+    for i in range(7, -1, -1):
+        bit = weighs[i] & s
+        if bit != 0:
+            print('1', end='')
+        else:
+            print('0', end='')
+    print()
