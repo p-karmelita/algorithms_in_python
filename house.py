@@ -1,0 +1,27 @@
+import sys
+
+
+print('Read BMP file in binary system')
+file = open('house.bmp', 'rb')
+data = file.read()
+length = len(data)
+print('File opened: ', file.name)
+print('Open in mode: ', file.mode)
+print('File takes', length, 'bytes on disk')
+file.seek(0)
+print('6 beginning bytes: ')
+for i in range(0, 6):
+    c=file.read(1)
+    print('Byte nr: ', i, ':', c, 'hex: ', c.hex())
+file.seek(2)
+bfSize = file.read(4)
+print('bfSize binary: ', bfSize)
+bfSizeDecimal = int.from_bytes(bfSize, byteorder=sys.byteorder)
+print('bfSize decimal: ', bfSizeDecimal)
+file.seek(18)
+biWidth = file.read(4)
+file.seek(22)
+biHeight = file.read(4)
+print('biWidth=', int.from_bytes(biWidth, byteorder=sys.byteorder), 'pixels')
+print('biHeight=', int.from_bytes(biHeight, byteorder=sys.byteorder), 'pixels')
+file.close()

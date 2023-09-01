@@ -48,3 +48,5 @@ def showbits(s):
         else:
             print('0', end='')
     print()
+
+showbits(5)
