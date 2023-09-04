@@ -50,3 +50,18 @@ def showbits(s):
     print()
 
 showbits(5)
+
+
+tabl = [1, 2, 3, 2, -7, 44, 5, 0, -3]
+def search(tabl, left, right, x):
+    #x=value to search, left and right=left and right border of searching
+    if left > right:
+        print('Element ', x, ' wasn\'t found.')
+    else:
+        if tabl[left]==x:
+            print('Found searched element.')
+        else:
+            search(tabl, left+1, right, x)
+
+print('Table: ', tabl)
+search(tabl,0, len(tabl)-1, 3)
