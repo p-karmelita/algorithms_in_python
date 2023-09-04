@@ -65,3 +65,23 @@ def search(tabl, left, right, x):
 
 print('Table: ', tabl)
 search(tabl,0, len(tabl)-1, 3)
+
+
+def factorial(x):
+    if x==0:
+        return 1
+    else:
+        return x*factorial(x-1)
+
+for i in range(5, 11):
+    print(f'factorial({i})={factorial(i)}')
+
+
+def fib(x):
+    if x < 2:
+        return x
+    else:
+        return fib(x - 1) + fib(x - 2)
+
+for i in range(1, 12):
+    print(f'fib({i})={fib(i)}')
