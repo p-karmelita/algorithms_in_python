@@ -85,3 +85,23 @@ def fib(x):
 
 for i in range(1, 12):
     print(f'fib({i})={fib(i)}')
+
+
+cpt = 0
+def mccarthy_function(x):
+    global cpt
+    cpt += 1
+    if x > 100:
+        return x-10
+    else:
+        return mccarthy_function(mccarthy_function(x+11))
+
+x = int(input('> set x: '))
+
+print(f'McCarthy({x}) = {mccarthy_function(x)}')
+
+if cpt==1:
+    print('[Function called once]')
+else:
+    print(f'[Function called {cpt} times]')
+print('Good bye!')
