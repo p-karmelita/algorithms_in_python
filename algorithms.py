@@ -77,6 +77,16 @@ for i in range(5, 11):
     print(f'factorial({i})={factorial(i)}')
 
 
+def factorial2(x, tmp=1):
+    if x==0:
+        return tmp
+    else:
+        return factorial2(x-1, x*tmp)
+
+for i in range(5, 15):
+    print(f'factorial({i:2})={factorial(i):20} \t factorial2({i})={factorial2(i):20}')
+
+
 def fib(x):
     if x < 2:
         return x
