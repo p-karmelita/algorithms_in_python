@@ -115,3 +115,24 @@ if cpt==1:
 else:
     print(f'[Function called {cpt} times]')
 print('Good bye!')
+
+
+tabl = [1, 2, 6, 7, 20, 18, 22, 25, 34, 39, 46]
+
+
+def recurent_binary_search(tab, x, left, right):
+    if left > right:
+        return -1                   # element not found
+    else:
+        mid = (left + right) // 2
+        if tab[mid] == x:
+            return mid              # element found
+        else:
+            if x < tab[mid]:         # search left
+                return recurent_binary_search(tab, x, left, mid-1)
+            else:                   # search right
+                return recurent_binary_search(tab, x, mid+1, right)
+
+
+print('Table: ', tabl)               # len() return size of table
+print('Searching for 39: ', recurent_binary_search(tabl, 39, 0, len(tabl)))
