@@ -2,10 +2,19 @@ import math
 
 
 def greatest_common_divisor(a, b):
-    if (b == 0):
+    if b == 0:
         return a
     else:
         return greatest_common_divisor(b, a % b)
+
+
+def gcd(a, b):
+    if b > a:
+        return gcd(a, b - a)
+    if b < a:
+        return gcd(a - b, b)
+    if a == b:
+        return b
 
 
 def is_prime(n):
@@ -148,3 +157,10 @@ print('Table=', list(range(10)))
 tabl = list(range(10))
 reverse_array(tabl, 0, len(tabl)-1)
 print('Table= ', tabl)
+
+
+def factorial(x, res=1):
+    while x != 0:
+        res = x * res
+        x = x - 1
+    return res
