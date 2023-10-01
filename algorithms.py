@@ -21,9 +21,10 @@ def is_prime(n):
     if n <= 2:
         return False
     for i in range(2, int(math.sqrt(n)) + 1):
-        if (n % i == 0):
+        if n % i == 0:
             return False
     return True
+
 
 for i in range(2, 100):
     if is_prime(i):
@@ -40,7 +41,10 @@ def sieve_of_erastotenes(n):
         i = i + 1
     return tp
 
+
 res = sieve_of_erastotenes(100)
+
+
 print('\n\nCalculating prime numbers using Sieve of Erastotenes')
 for i in range(2, 100):
     if res[i]:
@@ -58,10 +62,13 @@ def showbits(s):
             print('0', end='')
     print()
 
+
 showbits(5)
 
 
 tabl = [1, 2, 3, 2, -7, 44, 5, 0, -3]
+
+
 def search(tabl, left, right, x):
     #x=value to search, left and right=left and right border of searching
     if left > right:
@@ -72,8 +79,9 @@ def search(tabl, left, right, x):
         else:
             search(tabl, left+1, right, x)
 
+
 print('Table: ', tabl)
-search(tabl,0, len(tabl)-1, 3)
+search(tabl, 0, len(tabl)-1, 3)
 
 
 def factorial(x):
@@ -92,6 +100,7 @@ def factorial2(x, tmp=1):
     else:
         return factorial2(x-1, x*tmp)
 
+
 for i in range(5, 15):
     print(f'factorial({i:2})={factorial(i):20} \t factorial2({i})={factorial2(i):20}')
 
@@ -102,11 +111,14 @@ def fib(x):
     else:
         return fib(x - 1) + fib(x - 2)
 
+
 for i in range(1, 12):
     print(f'fib({i})={fib(i)}')
 
 
 cpt = 0
+
+
 def mccarthy_function(x):
     global cpt
     cpt += 1
@@ -115,18 +127,16 @@ def mccarthy_function(x):
     else:
         return mccarthy_function(mccarthy_function(x+11))
 
+
 x = int(input('> set x: '))
 
 print(f'McCarthy({x}) = {mccarthy_function(x)}')
 
-if cpt==1:
+if cpt == 1:
     print('[Function called once]')
 else:
     print(f'[Function called {cpt} times]')
 print('Good bye!')
-
-
-tabl = [1, 2, 6, 7, 20, 18, 22, 25, 34, 39, 46]
 
 
 def recurent_binary_search(tab, x, left, right):
@@ -145,6 +155,20 @@ def recurent_binary_search(tab, x, left, right):
 
 print('Table: ', tabl)               # len() return size of table
 print('Searching for 39: ', recurent_binary_search(tabl, 39, 0, len(tabl)))
+
+
+def search_iterate_version(tab, x):
+    n = len(tab)
+    pos = 0
+    while pos < n and tab[pos] != x:
+        pos += 1
+    if pos < n:
+        return pos
+    else:
+        return -1
+
+
+print(search_iterate_version(tabl, 7))
 
 
 def reverse_array(tab, left, right):
